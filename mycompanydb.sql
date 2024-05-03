@@ -47,3 +47,20 @@ CASE
 END AS 'TOTAL COMPENSATION'
 FROM 
 Employees ORDER BY salary DESC;
+
+-- Identify employees with Total Compensation greater than 60,000
+SELECT 
+	first_name AS 'First Name', last_name AS 'Last Name', salary AS Salary, bonus_percentage AS 'Bonus %', 
+CASE
+	WHEN (salary + (bonus_percentage/100*salary)) >60000
+	THEN 'HIGH Compensation'
+	ELSE 'LOW Compensation'
+END AS 'TOTAL COMPENSATION'
+FROM 
+Employees ORDER BY salary ASC;
+
+-- insert a new employee
+INSERT INTO Employees (
+	employee_id, first_name, last_name, salary, bonus_percentage)
+VALUES 
+	(9, 'Twin', 'Thomas', 25000, 10);
